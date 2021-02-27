@@ -1,0 +1,7 @@
+<h1 *ngIf="true">Component list albums</h1>
+
+<ul>
+  <li *ngFor="let album of (albums$ | async)">
+    {{album.name }} | {{ album?.artist.name}}
+  </li>
+</ul>

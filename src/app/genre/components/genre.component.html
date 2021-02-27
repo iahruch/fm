@@ -1,0 +1,15 @@
+
+<h2>Genge list </h2>
+
+<ul>
+  <li *ngFor="let genre of (genre$ | async) | slice:0:6 ">
+    <a [routerLink]="[genre.name]">{{genre.name}}</a>
+  </li>
+</ul>
+
+<!--name(pin):"rock"-->
+<!--url(pin):"https://www.last.fm/tag/rock"-->
+<!--reach(pin):"396393"-->
+<!--taggings(pin):"3988090"-->
+<!--streamable(pin):"1"-->
+<!--wiki(pin):-->
