@@ -9,7 +9,6 @@ export class AlbumService {
   constructor(private http: HttpClient) {}
 
   getAlbums(genre): Observable<GetAlbumsResponseInterface> {
-    console.log('AlbumService', genre)
     let params = new HttpParams()
       .set('method', 'tag.gettopalbums')
       .set('tag', genre)

@@ -11,3 +11,18 @@ export const getAlbumsSelector = createSelector(
   albumsFeatureSelector,
   (state: AlbumsStateInterface) => state.albums
 )
+
+export const isLoadingSelector = createSelector(
+  albumsFeatureSelector,
+  (state: AlbumsStateInterface) => state.isLoading
+)
+
+export const searchResultSelector = createSelector(
+  albumsFeatureSelector,
+  (state: AlbumsStateInterface) => state.searchResult
+)
+
+export const errorSelector = createSelector(
+  albumsFeatureSelector,
+  (state: AlbumsStateInterface) => state.error
+)

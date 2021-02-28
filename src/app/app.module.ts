@@ -11,6 +11,7 @@ import { environment } from '../../../exspa/src/environments/environment'
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { EffectsModule } from '@ngrx/effects'
 import { AlbumsModule } from './albums/albums.module'
+import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store'
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,12 +20,13 @@ import { AlbumsModule } from './albums/albums.module'
     AppRoutingModule,
     GenreModule,
     AlbumsModule,
-    StoreModule.forRoot({}),
+    StoreModule.forRoot({ router: routerReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
     EffectsModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthIntercepter, multi: true },

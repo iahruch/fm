@@ -8,20 +8,27 @@ import { EffectsModule } from '@ngrx/effects'
 import { AlbumEffect } from './store/album.effect'
 import { HttpClientModule } from '@angular/common/http'
 import { AlbumService } from './services/album.service'
-import { reducer } from './store/reducer'
-import { TopbarModule } from '../shared/modules/topbar/topbar.module'
+import { reducer } from './store/reducers/reducers'
+import { SearchResultComponent } from './components/search-result/search-result.component'
+import { TopbarComponent } from './components/topbar/topbar.component'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { SearchEffect } from './store/search.effect'
 
-const routes = [{ path: ':id', component: AlbumsComponent }]
+const routes = [
+  { path: ':id', component: AlbumsComponent },
+  { path: ':id/search', component: SearchResultComponent, pathMatch: 'full' },
+]
 
 @NgModule({
-  declarations: [AlbumsComponent],
+  declarations: [TopbarComponent, AlbumsComponent, SearchResultComponent],
   imports: [
     CommonModule,
     HttpClientModule,
-    TopbarModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('albums', reducer),
-    EffectsModule.forFeature([AlbumEffect]),
+    EffectsModule.forFeature([AlbumEffect, SearchEffect]),
   ],
   exports: [],
   providers: [AlbumService],

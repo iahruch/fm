@@ -1,0 +1,6 @@
+<fm-topbar></fm-topbar>
+<ul>
+  <li *ngFor="let album of (this.searchResult$| async)">
+    {{album.name }} | {{ album?.artist.name}}
+  </li>
+</ul>

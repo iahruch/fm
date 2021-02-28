@@ -4,7 +4,7 @@
 
       <div class="inner d-flex flex-row align-items-center justify-content-start">
 
-        <button class="btn btn-outline-white btn-back">Back</button>
+        <button class="btn btn-outline-white btn-back" (click)="backToGenre()"> Back</button>
 
         <form [formGroup]="form" (keyup.enter)="search()">
           <fieldset>
