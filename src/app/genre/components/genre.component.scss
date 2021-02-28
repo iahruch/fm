@@ -1,0 +1,34 @@
+.wrapper {
+  padding-top: 70px;
+}
+.item {
+  position: relative;
+  width: 98%;
+  margin: 3px;
+  padding-bottom:70%;
+  border-radius: 4px;
+
+  &-link {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+  }
+  &-link:hover {
+    background-color: rgba(0,0,0, 0.15);
+  }
+
+}
+
+@for $i from 1 through 6 {
+  .bg#{$i} {
+    background-color: adjust-hue(olivedrab, 80%*$i);
+  }
+}

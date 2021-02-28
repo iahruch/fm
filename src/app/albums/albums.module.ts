@@ -9,6 +9,7 @@ import { AlbumEffect } from './store/album.effect'
 import { HttpClientModule } from '@angular/common/http'
 import { AlbumService } from './services/album.service'
 import { reducer } from './store/reducer'
+import { TopbarModule } from '../shared/modules/topbar/topbar.module'
 
 const routes = [{ path: ':id', component: AlbumsComponent }]
 
@@ -17,6 +18,7 @@ const routes = [{ path: ':id', component: AlbumsComponent }]
   imports: [
     CommonModule,
     HttpClientModule,
+    TopbarModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('albums', reducer),
     EffectsModule.forFeature([AlbumEffect]),

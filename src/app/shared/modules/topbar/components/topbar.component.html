@@ -1,1 +1,30 @@
-<h1>Top BAR</h1>
+<div class="wrapper">
+  <div class="container">
+    <div class="row" >
+
+      <div class="inner d-flex flex-row align-items-center justify-content-start">
+
+        <button class="btn btn-outline-white btn-back">Back</button>
+
+        <form [formGroup]="form" (keyup.enter)="search()">
+          <fieldset>
+            <fieldset class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="search album"
+                formControlName="search"
+              />
+            </fieldset>
+          </fieldset>
+        </form>
+
+        <button class="btn ms-auto btn-favorites">
+          <i class="ion-heart"></i>
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</div>

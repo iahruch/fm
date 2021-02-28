@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthIntercepter } from './shared/services/auth.intercepter'
-import { TopbarModule } from './shared/modules/topbar/topbar.module'
 import { GenreModule } from './genre/genre.module'
 import { StoreModule } from '@ngrx/store'
 import { environment } from '../../../exspa/src/environments/environment'
@@ -18,7 +17,6 @@ import { AlbumsModule } from './albums/albums.module'
   imports: [
     BrowserModule,
     AppRoutingModule,
-    TopbarModule,
     GenreModule,
     AlbumsModule,
     StoreModule.forRoot({}),

@@ -1,11 +1,20 @@
 
-<h2>Genge list </h2>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
 
-<ul>
-  <li *ngFor="let genre of (genre$ | async) | slice:0:6 ">
-    <a [routerLink]="[genre.name]">{{genre.name}}</a>
-  </li>
-</ul>
+          <div class="col-12 col-sm-6 col-md-4 " *ngFor="let genre of (genre$ | async) | slice:0:6; let i = index">
+              <div class="item bg{{i+1}}"  >
+                  <a class="item-link" [routerLink]="[genre.name]">
+                     {{genre.name}}
+                  </a>
+              </div>
+
+           </div>
+
+     </div>
+  </div>
+</div>
 
 <!--name(pin):"rock"-->
 <!--url(pin):"https://www.last.fm/tag/rock"-->

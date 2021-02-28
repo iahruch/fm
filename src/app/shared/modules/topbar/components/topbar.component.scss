@@ -1,3 +1,17 @@
-h1 {
-  background-color: lightseagreen;
+.wrapper {
+  background-color: #111;
+}
+.inner {
+  padding: 10px 0;
+  color: white;
+
+  .btn-outline-white {
+    color: white;
+    border: 1px solid white;
+    &:hover {
+      color: black;
+      background-color: white;
+    }
+
+  }
 }

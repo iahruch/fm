@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core'
-import { AlbumService } from '../../services/album.service'
 import { ActivatedRoute } from '@angular/router'
 import { select, Store } from '@ngrx/store'
 import { getAlbums } from '../../store/actions'
@@ -23,6 +22,7 @@ export class AlbumsComponent implements OnInit {
     console.log(genre)
     this.store.dispatch(getAlbums({ genre }))
   }
+
   initializeValues(): void {
     this.albums$ = this.store.pipe(
       select(getAlbumsSelector),
