@@ -1,8 +1,29 @@
 <fm-topbar></fm-topbar>
-<h1 *ngIf="true">Component list albums</h1>
 
-<ul>
-  <li *ngFor="let album of (albums$ | async)">
-    {{album.name }} | {{ album?.artist.name}}
-  </li>
-</ul>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ul class="d-flex flex-row flex-wrap ">
+          <li
+            *ngFor="let album of (albums$ | async) "
+            class="item"
+
+          >
+            <img [src]="album.image[3]['#text']" alt="album-{{album.name}}">
+            <p class="info">{{album.name }}</p>
+
+            <div class="overlay">
+              <h1>{{album.name }}</h1>
+              <p>{{album.artist.name}}</p>
+
+              <fm-add-favorites [id]="album.mbid" [genre]="genre" ></fm-add-favorites>
+
+            </div>
+
+          </li>
+        </ul>
+
+      </div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import { SearchResultComponent } from './components/search-result/search-result.
 import { TopbarComponent } from './components/topbar/topbar.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SearchEffect } from './store/search.effect'
+import { AddToFavoritesModule } from '../shared/modules/addToFavorites/addToFavorites.module'
 
 const routes = [
   { path: ':id', component: AlbumsComponent },
@@ -26,6 +27,7 @@ const routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    AddToFavoritesModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('albums', reducer),
     EffectsModule.forFeature([AlbumEffect, SearchEffect]),

@@ -15,12 +15,13 @@ import { AlbumInterface } from '../../types/album.interface'
 export class AlbumsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private store: Store) {}
   albums$: Observable<AlbumInterface[]>
+  genre: string
 
   ngOnInit(): void {
     this.initializeValues()
-    let genre = this.route.snapshot.params.id
-    console.log(genre)
-    this.store.dispatch(getAlbums({ genre }))
+    this.genre = this.route.snapshot.params.id
+    console.log(this.genre)
+    this.store.dispatch(getAlbums({ genre: this.genre }))
   }
 
   initializeValues(): void {
