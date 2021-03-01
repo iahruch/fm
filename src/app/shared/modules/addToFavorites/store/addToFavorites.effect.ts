@@ -5,6 +5,7 @@ import { of } from 'rxjs'
 import { addToFavoritesAction, addToFavoritesSuccessAction } from './actions'
 import { getAlbumsSuccess } from '../../../../albums/store/actions'
 import { PersistFavoritesServices } from '../services/persistFavorites.services'
+import { MessageService } from '../../../services/alert.service'
 
 @Injectable()
 export class AddToFavoritesEffect {
@@ -16,19 +17,17 @@ export class AddToFavoritesEffect {
       switchMap(({ name }) => {
         let fav = this.persistFavoritesServices.get() || []
 
-        if (!!fav.length) {
-          if (fav.includes(name)) {
-            fav = fav.filter((el) => el !== name)
-          } else {
-            fav.push(name)
-          }
+        if (fav.includes(name)) {
+          fav = fav.filter((el) => el !== name)
+          this.msg.setMessage({ typeMsg: 'remove', text: name })
         } else {
           fav.push(name)
+          this.msg.setMessage({ typeMsg: 'add', text: name })
         }
 
         this.persistFavoritesServices.set(fav)
         return of(addToFavoritesSuccessAction({ favorites: fav }))
-      }) //end switchmap
+      })
     )
   )
 
@@ -44,6 +43,7 @@ export class AddToFavoritesEffect {
 
   constructor(
     private actions$: Actions,
-    private persistFavoritesServices: PersistFavoritesServices
+    private persistFavoritesServices: PersistFavoritesServices,
+    private msg: MessageService
   ) {}
 }

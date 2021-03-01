@@ -67,9 +67,3 @@ export class SearchEffect {
     private store: Store
   ) {}
 }
-
-//
-// tap(() => {
-//   console.log('AlbumEffect ', this.router.url)
-//   this.router.navigate(['/'])
-// })

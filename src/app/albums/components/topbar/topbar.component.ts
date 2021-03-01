@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core'
 import { FormBuilder, FormGroup } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router'
-import { Store } from '@ngrx/store'
+import { select, Store } from '@ngrx/store'
 import { backToGenre, getSearch } from '../../store/actions'
+import { getFavoritesSelector } from '../../../shared/modules/addToFavorites/store/selectors'
 
 @Component({
   selector: 'fm-topbar',
@@ -10,6 +11,7 @@ import { backToGenre, getSearch } from '../../store/actions'
   styleUrls: ['./topbar.component.scss'],
 })
 export class TopbarComponent implements OnInit {
+  countFavorites: number | string
   form: FormGroup
   constructor(
     private route: ActivatedRoute,
@@ -19,6 +21,9 @@ export class TopbarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.store.pipe(select(getFavoritesSelector)).subscribe((favorites) => {
+      this.countFavorites = favorites.length
+    })
     this.form = this.fb.group({
       search: [''],
     })
@@ -34,7 +39,6 @@ export class TopbarComponent implements OnInit {
   }
 
   backToGenre() {
-    this.router.navigate(['/'])
     this.store.dispatch(backToGenre())
   }
 }

@@ -15,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SearchEffect } from './store/search.effect'
 import { AddToFavoritesModule } from '../shared/modules/addToFavorites/addToFavorites.module'
 import { HoverDirective } from './services/hover.directive'
+import { AlertModule } from '../shared/modules/alert/alert.module'
+import { MessageService } from '../shared/services/alert.service'
+import { BackToGenreEffect } from './store/backToGenre.effect'
 
 const routes = [
   { path: ':id', component: AlbumsComponent },
@@ -34,11 +37,12 @@ const routes = [
     FormsModule,
     ReactiveFormsModule,
     AddToFavoritesModule,
+    AlertModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature('albums', reducer),
-    EffectsModule.forFeature([AlbumEffect, SearchEffect]),
+    EffectsModule.forFeature([AlbumEffect, SearchEffect, BackToGenreEffect]),
   ],
   exports: [],
-  providers: [AlbumService],
+  providers: [AlbumService, MessageService],
 })
 export class AlbumsModule {}
