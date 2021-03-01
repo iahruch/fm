@@ -14,6 +14,7 @@ import { TopbarComponent } from './components/topbar/topbar.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SearchEffect } from './store/search.effect'
 import { AddToFavoritesModule } from '../shared/modules/addToFavorites/addToFavorites.module'
+import { HoverDirective } from './services/hover.directive'
 
 const routes = [
   { path: ':id', component: AlbumsComponent },
@@ -21,7 +22,12 @@ const routes = [
 ]
 
 @NgModule({
-  declarations: [TopbarComponent, AlbumsComponent, SearchResultComponent],
+  declarations: [
+    TopbarComponent,
+    AlbumsComponent,
+    SearchResultComponent,
+    HoverDirective,
+  ],
   imports: [
     CommonModule,
     HttpClientModule,

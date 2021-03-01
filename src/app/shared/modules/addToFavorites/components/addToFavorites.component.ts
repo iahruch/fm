@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core'
 import { select, Store } from '@ngrx/store'
-import { getAlbumsSelector } from '../../../../albums/store/selectors'
-import { pluck } from 'rxjs/operators'
 import { Observable } from 'rxjs'
-import { AlbumInterface } from '../../../../albums/types/album.interface'
 import { addToFavoritesAction } from '../store/actions'
+import { FavoritesStateInterface } from '../types/addToFavorites.interface'
+import { getFavoritesSelector } from '../store/selectors'
 
 @Component({
   selector: 'fm-add-favorites',
@@ -12,21 +11,18 @@ import { addToFavoritesAction } from '../store/actions'
   styleUrls: ['./addToFavorites.component.scss'],
 })
 export class AddToFavoritesComponent implements OnInit {
-  @Input('id') idProps: string
-  @Input('genre') genreProps: string
-  isFavorites: false
+  @Input('name') nameProps: string
 
+  isFavorites: boolean = false
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    // this.store
-    //   .pipe(select(getAlbumsSelector), pluck('albums', 'album'))
-    //   .subscribe((albums) => {
-    //     this.albums = albums
-    //   })
+    this.store.pipe(select(getFavoritesSelector)).subscribe((nameAlbums) => {
+      this.isFavorites = nameAlbums.includes(this.nameProps)
+    })
   }
 
   addFavorites() {
-    this.store.dispatch(addToFavoritesAction({ id: this.idProps }))
+    this.store.dispatch(addToFavoritesAction({ name: this.nameProps }))
   }
 }

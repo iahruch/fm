@@ -4,22 +4,25 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
+
         <ul class="d-flex flex-row flex-wrap ">
           <li
             *ngFor="let album of (albums$ | async) "
             class="item"
-
+            hoverItem
           >
-            <img [src]="album.image[3]['#text']" alt="album-{{album.name}}">
-            <p class="info">{{album.name }}</p>
+            <div class="inner-item" >
+              <img [src]="album.image[3]['#text']" alt="album-{{album.name}}">
 
-            <div class="overlay">
-              <h1>{{album.name }}</h1>
-              <p>{{album.artist.name}}</p>
 
-              <fm-add-favorites [id]="album.mbid" [genre]="genre" ></fm-add-favorites>
+              <div class="overlay" >
+                <span class="title">{{album.name }}</span>
+                <span class="sub-title">{{album.artist.name}}</span>
+                <fm-add-favorites [name]="album.name" ></fm-add-favorites>
+              </div>
 
             </div>
+
 
           </li>
         </ul>

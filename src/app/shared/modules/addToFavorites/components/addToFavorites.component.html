@@ -1,8 +1,4 @@
-<i [ngClass]="{
-    'ion-ios-heart-outline': !isFavorites,
-    'ion-ios-heart': isFavorites,
-  }"
-   (click)="addFavorites()"
-  ></i>
-
-
+<i
+  [ngClass]="{'ion-ios-heart-outline': !isFavorites, 'ion-ios-heart':isFavorites }"
+  (click)="addFavorites()"
+></i>
