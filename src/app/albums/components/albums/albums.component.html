@@ -10,14 +10,8 @@
             class="item"
             hoverItem
           >
-            <div class="inner-item" >
-              <img [src]="album.image[3]['#text']" alt="album-{{album.name}}">
-              <div class="overlay" >
-                <span class="title">{{album.name }}</span>
-                <span class="sub-title">{{album.artist.name}}</span>
-                <fm-add-favorites [name]="album.name" ></fm-add-favorites>
-              </div>
-            </div>
+            <fm-album [album]="album"></fm-album>
+
           </li>
         </ul>
         <fm-alert></fm-alert>

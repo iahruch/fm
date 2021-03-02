@@ -1,0 +1,49 @@
+.inner-item {
+  width: 100%;
+  position: relative;
+  padding: 3px;
+  overflow: hidden;
+  padding: 5px;
+  padding-bottom: 70%;
+  border-radius: 4px;
+  img{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 97%;
+    background-color: #000;
+    cursor: pointer;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 97%;
+    height: 97%;
+    background-color: rgba(0,0,0, 0.6);
+    display: none ;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    .title {
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    .sub-title {
+      font-size: 0.7rem;
+      color: wheat;
+    }
+    i {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  }
+}
+
+
+
+

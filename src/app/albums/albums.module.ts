@@ -18,6 +18,7 @@ import { HoverDirective } from './services/hover.directive'
 import { AlertModule } from '../shared/modules/alert/alert.module'
 import { MessageService } from '../shared/services/alert.service'
 import { BackToGenreEffect } from './store/backToGenre.effect'
+import { AlbumComponent } from './components/album/album.component'
 
 const routes = [
   { path: ':id', component: AlbumsComponent },
@@ -30,6 +31,7 @@ const routes = [
     AlbumsComponent,
     SearchResultComponent,
     HoverDirective,
+    AlbumComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,20 @@
 <fm-topbar></fm-topbar>
-<ul>
-  <li *ngFor="let album of (this.searchResult$| async)">
-    {{album.name }} | {{ album?.artist.name}}
-  </li>
-</ul>
+
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <ul class="d-flex flex-row flex-wrap ">
+          <li
+            *ngFor="let album of (searchResult$ | async) "
+            class="item"
+            hoverItem
+          >
+            <fm-album [album]="album"></fm-album>
+
+          </li>
+        </ul>
+        <fm-alert></fm-alert>
+      </div>
+    </div>
+  </div>
