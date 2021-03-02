@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core'
 import { GetAlbumsResponseInterface } from '../types/getAlbumsResponse.interface'
 import { HttpClient, HttpParams } from '@angular/common/http'
 import { environment } from '../../../environments/environment'
-import { Observable } from 'rxjs'
+import { Observable, throwError } from 'rxjs'
+import { catchError } from 'rxjs/operators'
 
 @Injectable()
 export class AlbumService {
@@ -14,8 +15,10 @@ export class AlbumService {
       .set('tag', genre)
       .set('format', 'json')
 
-    return this.http.get<GetAlbumsResponseInterface>(environment.baseUrl, {
-      params,
-    })
+    return this.http
+      .get<GetAlbumsResponseInterface>(environment.baseUrl, {
+        params,
+      })
+      .pipe(catchError((err) => throwError(err)))
   }
 }

@@ -1,3 +1,9 @@
+@mixin media($breakpoint) {
+  @media (max-width: $breakpoint + 'px'){
+    @content;
+  }
+}
+
 .inner-item {
   width: 100%;
   position: relative;
@@ -32,10 +38,17 @@
     .title {
       font-size: 1.1rem;
       text-align: center;
+
+      @include media(768) {
+        font-size: 0.8rem;
+      }
     }
     .sub-title {
       font-size: 0.7rem;
       color: wheat;
+      @include media(768) {
+        font-size: 0.6rem;
+      }
     }
     i {
       font-size: 2rem;

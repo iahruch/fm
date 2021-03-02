@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { backToGenre } from './actions'
+import { backToGenre } from '../actions'
 import { tap } from 'rxjs/operators'
 import { Router } from '@angular/router'
 

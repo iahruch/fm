@@ -3,18 +3,22 @@
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-  background-color: tomato;
-  border-radius: 3px;
-  height: 2rem;
-  max-width: 400px;
+
+  background-color: black;
+  border-radius: 5px;
+  height: 3rem;
+  max-width: 450px;
   width: 100%;
   padding: 0 1rem;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  font-size: 1.2rem;
 
-  .text {
-    color: white;
-    font-size: 1.2rem;
-    line-height: 2rem;
+    .red-text {
+      color: red;
+      font-weight: 700;
+    }
 
-  }
 }

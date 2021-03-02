@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import {
-  getAlbumsSFailure,
-  getAlbumsSuccess,
-  getSearch,
-  getSearchFailure,
-  getSearchSuccess,
-} from './actions'
+import { getSearch, getSearchFailure, getSearchSuccess } from '../actions'
 import {
   catchError,
   filter,
@@ -18,11 +12,9 @@ import {
 } from 'rxjs/operators'
 import { Router } from '@angular/router'
 import { select, Store } from '@ngrx/store'
-import { getAlbumsSelector } from './selectors'
+import { getAlbumsSelector } from '../selectors'
 import { of } from 'rxjs'
-import { GetAlbumsResponseInterface } from '../types/getAlbumsResponse.interface'
-import { AlbumInterface } from '../types/album.interface'
-import { loginActionSuccess } from '../../../../../exspa/src/app/auth/store/actions/login.action'
+import { AlbumInterface } from '../../types/album.interface'
 
 @Injectable()
 export class SearchEffect {
@@ -38,7 +30,6 @@ export class SearchEffect {
             let resultSearch = albums.filter(({ name }) => {
               return new RegExp(searchStr, 'ig').test(name)
             })
-            //  console.log('resultSearch ', resultSearch)
             return getSearchSuccess({ albums: resultSearch })
           }),
           catchError(() => {

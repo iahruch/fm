@@ -9,14 +9,15 @@ import { AlertInterface } from '../../../types/alert.interface'
 })
 export class AlertComponent implements OnInit {
   message: string
-  typeMsg: string
+  isLike: boolean = false
   isShow: boolean = false
+
   constructor(private msgService: MessageService) {}
 
   ngOnInit(): void {
     this.msgService.getMessage().subscribe((data: AlertInterface) => {
       this.message = data.text
-      this.typeMsg = data.typeMsg
+      this.isLike = data.like
       this.isShow = true
 
       setTimeout(() => {

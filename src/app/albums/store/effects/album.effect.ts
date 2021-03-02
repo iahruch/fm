@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core'
 import { Actions, createEffect, ofType } from '@ngrx/effects'
-import { AlbumService } from '../services/album.service'
-import { getAlbums, getAlbumsSFailure, getAlbumsSuccess } from './actions'
+import { AlbumService } from '../../services/album.service'
+import { getAlbums, getAlbumsSFailure, getAlbumsSuccess } from '../actions'
 import { catchError, map, switchMap } from 'rxjs/operators'
 import { of } from 'rxjs'
-import { GetAlbumsResponseInterface } from '../types/getAlbumsResponse.interface'
+import { GetAlbumsResponseInterface } from '../../types/getAlbumsResponse.interface'
 
 @Injectable()
 export class AlbumEffect {

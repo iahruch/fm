@@ -19,10 +19,10 @@ export class AddToFavoritesEffect {
 
         if (fav.includes(name)) {
           fav = fav.filter((el) => el !== name)
-          this.msg.setMessage({ typeMsg: 'remove', text: name })
+          this.msg.setMessage({ like: false, text: name })
         } else {
           fav.push(name)
-          this.msg.setMessage({ typeMsg: 'add', text: name })
+          this.msg.setMessage({ like: true, text: name })
         }
 
         this.persistFavoritesServices.set(fav)

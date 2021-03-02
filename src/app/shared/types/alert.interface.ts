@@ -1,4 +1,4 @@
 export interface AlertInterface {
-  typeMsg: string
+  like: boolean
   text: string
 }
