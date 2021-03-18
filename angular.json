@@ -124,6 +124,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "fm"
+    }
+  },
+  "defaultProject": "fm",
+  "cli": {
+    "analytics": false
+  }
 }

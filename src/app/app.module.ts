@@ -7,7 +7,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthIntercepter } from './shared/services/auth.intercepter'
 import { GenreModule } from './genre/genre.module'
 import { StoreModule } from '@ngrx/store'
-import { environment } from '../../../exspa/src/environments/environment'
+import { environment } from './../environments/environment';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { EffectsModule } from '@ngrx/effects'
 import { AlbumsModule } from './albums/albums.module'
